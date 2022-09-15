@@ -28,6 +28,6 @@ class BudgetsController < ApplicationController
     private 
 
     def budget_params
-        params.permit(:name, :amount)
+        params.require(:budget).permit(:name, :amount)
     end
 end
