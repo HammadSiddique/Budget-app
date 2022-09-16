@@ -1,0 +1,12 @@
+<div>
+    <div>
+        <img src=<%= category.icon %> alt="category icon">
+    </div>
+    <div>
+        <%= link_to "#{category.name}", category_path(category)%>
+        <p><%=category.created_at.strftime("%d %b %Y")%></p>
+    </div>
+    <div>
+        <h4><%= category.budgets.sum(:amount) %></h4>
+    </div>
+</div>

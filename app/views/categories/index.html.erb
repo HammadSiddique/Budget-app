@@ -1,0 +1,10 @@
+<div>
+	<% @categories.each do |category| %>
+		<%= render partial: 'categories/category_card', locals: { category: category }%>
+	<% end %>
+
+	<% if @categories.empty? %>
+		<h2> You have no categories yet. </h2>
+	<% end %>
+
+	<%= link_to 'Add New Category', new_category_path %>
