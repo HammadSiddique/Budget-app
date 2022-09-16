@@ -16,7 +16,7 @@ class BudgetsController < ApplicationController
 
     def create
         @user = current_user
-        @budget = user.budgets.new(budget_params)
+        @budget = @user.budgets.new(budget_params)
         if @budget.save
             @category_budget = @budget.category_budgets.create(category_id: params[:category_id], budget_id: @budget.id)
             redirect_to categories_path
@@ -28,6 +28,6 @@ class BudgetsController < ApplicationController
     private 
 
     def budget_params
-        params.require(:budget).permit(:name, :amount)
+        params.permit(:name, :amount)
     end
 end

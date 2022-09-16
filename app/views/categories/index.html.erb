@@ -5,7 +5,7 @@
 	<% end %>
 
 	<% if @categories.empty? %>
-		<h2> You have no categories yet. </h2>
+		<h2 class='text-center text-2xl font-bold text-red-500 mb-8'> You have no categories yet. </h2>
 	<% end %>
 	<div class='px-4 py-3 m-auto text-white text-center text-sm font-semibold bg-green-700 rounded hover:text-white focus:text-gray-900 hover:bg-green-800 focus:bg-gray-200 focus:outline-none focus:shadow-outline w-44'>
 		<%= link_to 'Add New Category', new_category_path %>
