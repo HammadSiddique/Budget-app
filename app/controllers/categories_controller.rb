@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
     def index
-        @categories = Category.all.where(user_id: current_user.id).order(:name)
+        @categories = Category.all.where(user_id: current_user.id).order(created_at: :desc)
     end
 
     def show
@@ -8,14 +8,15 @@ class CategoriesController < ApplicationController
     end
 
     def new
-        @group = Group.new
+        @category = Category.new
     end
 
     def create
-        @user = current_user
+        
         @category = Category.new(category_params)
+        @category.user = current_user
         if @category.save
-          redirect_to @category
+          redirect_to categories_path
         else
           render :new
         end
