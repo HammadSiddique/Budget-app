@@ -7,6 +7,6 @@
         <p class='text-gray-500 text-xs'><%=category.created_at.strftime("%d %b %Y")%></p>
     </div>
     <div>
-        <h4 class='pr-4 font-bold'>$<%= category.budgets.sum(:amount) %></h4>
+        <h4 class='pr-4 font-bold text-green-500'>$<%= category.budgets.sum(:amount) %></h4>
     </div>
 </div>
