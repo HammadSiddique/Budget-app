@@ -1,0 +1,14 @@
+<%= render partial: "shared/navbar" %>
+<div class="h-screen bg-gray-200 flex justify-center items-center">
+<div class='py-12 px-5 bg-white rounded-2xl shadow-xl z-20 md:px-12'>
+	<div>
+		<h2 class="text-3xl font-bold text-center mb-4 cursor-pointer">Add a new transaction</h2>
+	</div>
+<%= form_with model: @budgets, url: category_budgets_path, method: :post, data: { turbo: false } do |f| %>
+  <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: 'Transaction Name', class: "block text-sm py-3 px-4 rounded-lg w-full border outline-none mb-4"%>
+  <%= f.number_field :amount, autofocus: true, autocomplete: "icon", placeholder: 'Amount', class: "block text-sm py-3 px-4 rounded-lg w-full border outline-none mb-4"%>
+  <%= f.submit 'Create', class: "py-2 w-28 m-auto text-l text-white bg-green-600 rounded-xl hover:bg-green-800 duration-100 ease-in-out"%>
+<% end %>
+
+</div>
+</div>

@@ -1,0 +1,63 @@
+<%= render partial: "shared/navbar" %>
+<div class='flex-col items-center justify-between bg-gray-100 h-screen pt-10'>
+<div class='m-auto py-5 max-w-lg mb-10 flex items-center justify-between overflow-hidden rounded bg-white shadow-lg' style='width:95%'>
+    <div class='border-0 pl-4 w-2/6'>
+        <img src=<%= @category.icon %> alt="category icon">
+    </div>
+    <div>
+        <%= link_to "#{@category.name}", category_path(@category), class: 'text-xl'%>
+        <p class='text-gray-500 text-xs'><%=@category.created_at.strftime("%d %b %Y")%></p>
+    </div>
+    <div>
+        <h4 class='pr-4 font-bold text-green-500'>$<%= @category.budgets.sum(:amount) %></h4>
+    </div>
+</div>
+<div class='px-4 py-3 m-auto text-white text-center text-sm font-semibold bg-green-700 rounded hover:text-white focus:text-gray-900 hover:bg-green-800 focus:bg-gray-200 focus:outline-none focus:shadow-outline w-52'>
+	<%= link_to 'Add New Transaction', new_category_budget_path(@category) %>
+</div>
+    <div class="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200 mt-12" style='width:95%'>
+        <header class="px-5 py-4 border-b border-gray-100">
+            <h2 class="font-semibold text-gray-800 text-2xl">Transactions</h2>
+        </header>
+        <div class="p-3">
+            <div class="overflow-x-auto">
+                <table class="table-auto w-full">
+                    <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+                        <tr>
+                            <th class="p-2 whitespace-nowrap">
+                                <div class="font-semibold text-left">Index</div>
+                            </th>
+                            <th class="p-2 whitespace-nowrap">
+                                <div class="font-semibold text-left">Name</div>
+                            </th>
+                            <th class="p-2 whitespace-nowrap">
+                                <div class="font-semibold text-left">Spent</div>
+                            </th>
+                            <th class="p-2 whitespace-nowrap">
+                                <div class="font-semibold text-left">Time</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm divide-y divide-gray-100">
+                        <% @category.budgets.each_with_index do |budget, index| %>
+                            <tr>
+                                <td class="p-2 whitespace-nowrap">
+                                    <p class="text-left pl-2"><%= index + 1 %></p>
+                                </td>
+                                <td class="p-2 whitespace-nowrap">
+                                    <p class="text-left"><%= budget.name %></p>
+                                </td>
+                                <td class="p-2 whitespace-nowrap">
+                                    <p class="text-left font-medium text-green-500">$<%= budget.amount %></p>
+                                </td>
+                                <td class="p-2 whitespace-nowrap">
+                                    <p class="text-left text-xs text-gray-400"><%= budget.created_at.strftime("%d %b %Y") %></p>
+                                </td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+</div>
+</div>
