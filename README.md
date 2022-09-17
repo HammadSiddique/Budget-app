@@ -9,7 +9,7 @@
 
 ## Project Documentation 📄
 
- - Here is the presentation video link👈
+ - Here is the presentation [video link](https://www.loom.com/share/73e4323ef0b04d059f10db0a65cd1b84)👈
  - Here is the deployed app in [Heroku](https://rails-budget-manager.herokuapp.com/)👈
  
 ## Built With 🛠️
